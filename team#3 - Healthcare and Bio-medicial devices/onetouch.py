@@ -1,3 +1,5 @@
+''''     it is main code of one touch file it gives user information about doctor and hospital'''
+
 exitcount='s'
 password="admin"
 sepc=[0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0]
@@ -14,6 +16,7 @@ while ( exitcount != 'E' ):
    print("---1 to add doctor ")
    print("")
    cval=int(input("please select the admin service by selecting by  corresponding number in the list ----- "))
+   return cval
  def user():
    print("----WE WELCOMES YOU TO ONE TOUCH HEALTH CARE SERVICES----")
    b=["ACIDENT A EMERGENCY","ANESTHETICS","CANCER","BURN CENTERS","CARDIOLOGY","DIAGNOSTIC IMAGING","GASTROENTEROLOGY","GENERAL SURGERY"]
@@ -31,7 +34,7 @@ while ( exitcount != 'E' ):
   b=user()
   count=0
   for i in department:
-   
+    
    for j in i:
      if ( j == b ):
        print("SPECILAIST OF ",dep[int(b)]," in ",hospital[count],"are")
@@ -46,6 +49,35 @@ while ( exitcount != 'E' ):
    passwordA=input("")
    if ( passwordA == password ):
       adminfunc=admin()
+      if adminfunc == 0 :
+        print ("to add hospital add its name ")
+        hname=input("enter--")
+        hospital.append(hname)
+        print ("to add its doctor add  ")
+        print ("add it format <drname> <experince years> ")
+        whish="YES"
+        countlocal=0
+        localdr=[]
+        localdep=[]
+        print("code for department for doctor are as follow-")
+
+        for i in dep:
+          print(countlocal,i)
+          countlocal=countlocal+1
+        countlocal=0
+        while whish != "N":
+             
+             hname=input("enter name and experince of doctor--")
+             hsepc=int(input("enter department code of doctor --"))
+             localdep.append(int(hsepc))
+             whish=input("if to enter more press Y else N")
+             sepc.append(int(hsepc))
+             doctor.append(hname)
+             localdr.append(len(doctor)+countlocal)
+             countlocal=countlocal+1
+        dho.append(localdr)
+        department.append(localdep)
+
  print(" --------------------------------------------------------------------------")
  print(" ")
  print(" ")
